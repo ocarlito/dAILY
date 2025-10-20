@@ -220,6 +220,7 @@
             margin-top: 8px;
             overflow-x: auto;
             padding: 0 28px 28px;
+            position: relative;
         }
         table {
             width: 100%;
@@ -264,6 +265,12 @@
 
         tbody tr:last-child td {
             border-bottom: none;
+        }
+
+        .paywall-body {
+            filter: blur(6px);
+            opacity: 0.28;
+            pointer-events: none;
         }
 
         .status {
@@ -505,6 +512,8 @@
                                         <span class="sr-only">Status confirmado</span>
                                     </td>
                                 </tr>
+                            </tbody>
+                            <tbody class="paywall-body">
                                 <tr>
                                     <td>Diário Oficial da União</td>
                                     <td><span class="badge diario">Diário</span></td>
@@ -886,4 +895,3 @@
     </script>
 </body>
 </html>
-
