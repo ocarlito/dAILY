@@ -3,5 +3,6 @@
         "open-pages": [
             "pinyfakepage.html"
         ]
-    }
+    },
+    "livePreview.defaultPreviewPath": "/newindex copy.html"
 }
