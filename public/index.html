@@ -151,17 +151,18 @@
         }
 
         .status-icon {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--brand-primary) 0%, #ff7e1d 100%);
-            color: #101014;
-            font-size: 18px;
+            min-height: 32px;
+            padding: 4px 14px;
+            border-radius: var(--radius-sm);
+            background: linear-gradient(135deg, var(--success-color) 0%, rgba(16, 185, 129, 0.75) 100%);
+            color: #052e16;
+            font-size: 14px;
             font-weight: 700;
-            box-shadow: 0 6px 20px rgba(255, 149, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+            white-space: nowrap;
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.28);
         }
 
         .notification-text {
@@ -289,17 +290,30 @@
             border-bottom: none;
         }
 
-        .status {
+        .status-pill {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            min-width: 64px;
+            min-width: 72px;
             padding: 6px 12px;
             font-weight: 600;
-            background: linear-gradient(135deg, var(--brand-primary) 0%, #ff7e1d 100%);
-            color: #101014;
+            background: linear-gradient(135deg, var(--success-color) 0%, rgba(16, 185, 129, 0.75) 100%);
+            color: #052e16;
             border-radius: var(--radius-sm);
-            box-shadow: 0 4px 14px rgba(255, 149, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+            white-space: nowrap;
+        }
+
+        .status-label {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px 12px;
+            font-weight: 600;
+            color: var(--success-color);
+            background: rgba(16, 185, 129, 0.12);
+            border-radius: var(--radius-sm);
+            white-space: nowrap;
         }
 
         .badge {
@@ -331,12 +345,6 @@
             color: #f472b6;
             border-color: rgba(236, 72, 153, 0.4);
             background: rgba(236, 72, 153, 0.12);
-        }
-
-        .check-mark {
-            color: var(--brand-primary);
-            font-weight: 700;
-            font-size: 18px;
         }
 
         .premium-section .premium-description {
@@ -738,7 +746,7 @@
         <main id="conteudo-principal">
             <section class="panel notification-panel" aria-labelledby="alerta-semanal">
                 <div class="panel-header">
-                    <span class="status-icon" aria-hidden="true">✓</span>
+                    <span class="status-icon">Nada Consta</span>
                     <p class="notification-text" id="alerta-semanal">
                         Informamos que, nas publicações dos <strong>últimos sete dias</strong>, <strong class="positive">não houve menções ao nome de <span id="user-name-notification"></span>.</strong>
                     </p>
@@ -779,317 +787,212 @@
                                 <tr>
                                     <td>Tribunal de Justiça do Estado de São Paulo</td>
                                     <td><span class="badge tribunal">Tribunal</span></td>
-                                    <td><span class="status">100%</span></td>
-                                    <td>
-                                        <span class="check-mark" aria-hidden="true">✓</span>
-                                        <span class="sr-only">Status confirmado</span>
-                                    </td>
+                                    <td><span class="status-pill">100%</span></td>
+                                    <td><span class="status-label">Nada Consta</span></td>
                                 </tr>
                                 <tr>
                                     <td>Diário Oficial da União</td>
                                     <td><span class="badge diario">Diário</span></td>
-                                    <td><span class="status">100%</span></td>
-                                    <td>
-                                        <span class="check-mark" aria-hidden="true">✓</span>
-                                        <span class="sr-only">Status confirmado</span>
-                                    </td>
+                                    <td><span class="status-pill">100%</span></td>
+                                    <td><span class="status-label">Nada Consta</span></td>
                                 </tr>
                                 <tr>
                                     <td>Diário Oficial do Acre</td>
                                     <td><span class="badge diario">Diário</span></td>
-                                    <td><span class="status">100%</span></td>
-                                    <td>
-                                        <span class="check-mark" aria-hidden="true">✓</span>
-                                        <span class="sr-only">Status confirmado</span>
-                                    </td>
+                                    <td><span class="status-pill">100%</span></td>
+                                    <td><span class="status-label">Nada Consta</span></td>
                                 </tr>
                                 <tr>
                                     <td>Diário Oficial de Alagoas</td>
                                     <td><span class="badge diario">Diário</span></td>
-                                    <td><span class="status">100%</span></td>
-                                    <td>
-                                        <span class="check-mark" aria-hidden="true">✓</span>
-                                        <span class="sr-only">Status confirmado</span>
-                                    </td>
+                                    <td><span class="status-pill">100%</span></td>
+                                    <td><span class="status-label">Nada Consta</span></td>
                                 </tr>
                                 <tr>
                                     <td>Diário Oficial do Amapá</td>
                                     <td><span class="badge diario">Diário</span></td>
-                                    <td><span class="status">100%</span></td>
-                                    <td>
-                                        <span class="check-mark" aria-hidden="true">✓</span>
-                                        <span class="sr-only">Status confirmado</span>
-                                    </td>
+                                    <td><span class="status-pill">100%</span></td>
+                                    <td><span class="status-label">Nada Consta</span></td>
                                 </tr>
                                 <tr>
                                     <td>Diário Oficial do Amazonas</td>
                                     <td><span class="badge diario">Diário</span></td>
-                                    <td><span class="status">100%</span></td>
-                                    <td>
-                                        <span class="check-mark" aria-hidden="true">✓</span>
-                                        <span class="sr-only">Status confirmado</span>
-                                    </td>
+                                    <td><span class="status-pill">100%</span></td>
+                                    <td><span class="status-label">Nada Consta</span></td>
                                 </tr>
                                 <tr>
                                     <td>Diário Oficial da Bahia</td>
                                     <td><span class="badge diario">Diário</span></td>
-                                    <td><span class="status">100%</span></td>
-                                    <td>
-                                        <span class="check-mark" aria-hidden="true">✓</span>
-                                        <span class="sr-only">Status confirmado</span>
-                                    </td>
+                                    <td><span class="status-pill">100%</span></td>
+                                    <td><span class="status-label">Nada Consta</span></td>
                                 </tr>
                                 <tr>
                                     <td>Diário Oficial do Ceará</td>
                                     <td><span class="badge diario">Diário</span></td>
-                                    <td><span class="status">100%</span></td>
-                                    <td>
-                                        <span class="check-mark" aria-hidden="true">✓</span>
-                                        <span class="sr-only">Status confirmado</span>
-                                    </td>
+                                    <td><span class="status-pill">100%</span></td>
+                                    <td><span class="status-label">Nada Consta</span></td>
                                 </tr>
                                 <tr>
                                     <td>Diário Oficial do Distrito Federal</td>
                                     <td><span class="badge diario">Diário</span></td>
-                                    <td><span class="status">100%</span></td>
-                                    <td>
-                                        <span class="check-mark" aria-hidden="true">✓</span>
-                                        <span class="sr-only">Status confirmado</span>
-                                    </td>
+                                    <td><span class="status-pill">100%</span></td>
+                                    <td><span class="status-label">Nada Consta</span></td>
                                 </tr>
                                 <tr>
                                     <td>Diário Oficial do Espírito Santo</td>
                                     <td><span class="badge diario">Diário</span></td>
-                                    <td><span class="status">100%</span></td>
-                                    <td>
-                                        <span class="check-mark" aria-hidden="true">✓</span>
-                                        <span class="sr-only">Status confirmado</span>
-                                    </td>
+                                    <td><span class="status-pill">100%</span></td>
+                                    <td><span class="status-label">Nada Consta</span></td>
                                 </tr>
                                 <tr>
                                     <td>Diário Oficial de Goiás</td>
                                     <td><span class="badge diario">Diário</span></td>
-                                    <td><span class="status">100%</span></td>
-                                    <td>
-                                        <span class="check-mark" aria-hidden="true">✓</span>
-                                        <span class="sr-only">Status confirmado</span>
-                                    </td>
+                                    <td><span class="status-pill">100%</span></td>
+                                    <td><span class="status-label">Nada Consta</span></td>
                                 </tr>
                                 <tr>
                                     <td>Diário Oficial do Maranhão</td>
                                     <td><span class="badge diario">Diário</span></td>
-                                    <td><span class="status">100%</span></td>
-                                    <td>
-                                        <span class="check-mark" aria-hidden="true">✓</span>
-                                        <span class="sr-only">Status confirmado</span>
-                                    </td>
+                                    <td><span class="status-pill">100%</span></td>
+                                    <td><span class="status-label">Nada Consta</span></td>
                                 </tr>
                                 <tr>
                                     <td>Diário Oficial do Mato Grosso</td>
                                     <td><span class="badge diario">Diário</span></td>
-                                    <td><span class="status">100%</span></td>
-                                    <td>
-                                        <span class="check-mark" aria-hidden="true">✓</span>
-                                        <span class="sr-only">Status confirmado</span>
-                                    </td>
+                                    <td><span class="status-pill">100%</span></td>
+                                    <td><span class="status-label">Nada Consta</span></td>
                                 </tr>
                                 <tr>
                                     <td>Diário Oficial do Mato Grosso do Sul</td>
                                     <td><span class="badge diario">Diário</span></td>
-                                    <td><span class="status">100%</span></td>
-                                    <td>
-                                        <span class="check-mark" aria-hidden="true">✓</span>
-                                        <span class="sr-only">Status confirmado</span>
-                                    </td>
+                                    <td><span class="status-pill">100%</span></td>
+                                    <td><span class="status-label">Nada Consta</span></td>
                                 </tr>
                                 <tr>
                                     <td>Diário Oficial de Minas Gerais</td>
                                     <td><span class="badge diario">Diário</span></td>
-                                    <td><span class="status">100%</span></td>
-                                    <td>
-                                        <span class="check-mark" aria-hidden="true">✓</span>
-                                        <span class="sr-only">Status confirmado</span>
-                                    </td>
+                                    <td><span class="status-pill">100%</span></td>
+                                    <td><span class="status-label">Nada Consta</span></td>
                                 </tr>
                                 <tr>
                                     <td>Diário Oficial do Pará</td>
                                     <td><span class="badge diario">Diário</span></td>
-                                    <td><span class="status">100%</span></td>
-                                    <td>
-                                        <span class="check-mark" aria-hidden="true">✓</span>
-                                        <span class="sr-only">Status confirmado</span>
-                                    </td>
+                                    <td><span class="status-pill">100%</span></td>
+                                    <td><span class="status-label">Nada Consta</span></td>
                                 </tr>
                                 <tr>
                                     <td>Diário Oficial da Paraíba</td>
                                     <td><span class="badge diario">Diário</span></td>
-                                    <td><span class="status">100%</span></td>
-                                    <td>
-                                        <span class="check-mark" aria-hidden="true">✓</span>
-                                        <span class="sr-only">Status confirmado</span>
-                                    </td>
+                                    <td><span class="status-pill">100%</span></td>
+                                    <td><span class="status-label">Nada Consta</span></td>
                                 </tr>
                                 <tr>
                                     <td>Diário Oficial do Paraná</td>
                                     <td><span class="badge diario">Diário</span></td>
-                                    <td><span class="status">100%</span></td>
-                                    <td>
-                                        <span class="check-mark" aria-hidden="true">✓</span>
-                                        <span class="sr-only">Status confirmado</span>
-                                    </td>
+                                    <td><span class="status-pill">100%</span></td>
+                                    <td><span class="status-label">Nada Consta</span></td>
                                 </tr>
                                 <tr>
                                     <td>Diário Oficial de Pernambuco</td>
                                     <td><span class="badge diario">Diário</span></td>
-                                    <td><span class="status">100%</span></td>
-                                    <td>
-                                        <span class="check-mark" aria-hidden="true">✓</span>
-                                        <span class="sr-only">Status confirmado</span>
-                                    </td>
+                                    <td><span class="status-pill">100%</span></td>
+                                    <td><span class="status-label">Nada Consta</span></td>
                                 </tr>
                                 <tr>
                                     <td>Diário Oficial do Piauí</td>
                                     <td><span class="badge diario">Diário</span></td>
-                                    <td><span class="status">100%</span></td>
-                                    <td>
-                                        <span class="check-mark" aria-hidden="true">✓</span>
-                                        <span class="sr-only">Status confirmado</span>
-                                    </td>
+                                    <td><span class="status-pill">100%</span></td>
+                                    <td><span class="status-label">Nada Consta</span></td>
                                 </tr>
                                 <tr>
                                     <td>Diário Oficial do Rio de Janeiro</td>
                                     <td><span class="badge diario">Diário</span></td>
-                                    <td><span class="status">100%</span></td>
-                                    <td>
-                                        <span class="check-mark" aria-hidden="true">✓</span>
-                                        <span class="sr-only">Status confirmado</span>
-                                    </td>
+                                    <td><span class="status-pill">100%</span></td>
+                                    <td><span class="status-label">Nada Consta</span></td>
                                 </tr>
                                 <tr>
                                     <td>Diário Oficial do Rio Grande do Norte</td>
                                     <td><span class="badge diario">Diário</span></td>
-                                    <td><span class="status">100%</span></td>
-                                    <td>
-                                        <span class="check-mark" aria-hidden="true">✓</span>
-                                        <span class="sr-only">Status confirmado</span>
-                                    </td>
+                                    <td><span class="status-pill">100%</span></td>
+                                    <td><span class="status-label">Nada Consta</span></td>
                                 </tr>
                                 <tr>
                                     <td>Diário Oficial do Rio Grande do Sul</td>
                                     <td><span class="badge diario">Diário</span></td>
-                                    <td><span class="status">100%</span></td>
-                                    <td>
-                                        <span class="check-mark" aria-hidden="true">✓</span>
-                                        <span class="sr-only">Status confirmado</span>
-                                    </td>
+                                    <td><span class="status-pill">100%</span></td>
+                                    <td><span class="status-label">Nada Consta</span></td>
                                 </tr>
                                 <tr>
                                     <td>Diário Oficial de Rondônia</td>
                                     <td><span class="badge diario">Diário</span></td>
-                                    <td><span class="status">100%</span></td>
-                                    <td>
-                                        <span class="check-mark" aria-hidden="true">✓</span>
-                                        <span class="sr-only">Status confirmado</span>
-                                    </td>
+                                    <td><span class="status-pill">100%</span></td>
+                                    <td><span class="status-label">Nada Consta</span></td>
                                 </tr>
                                 <tr>
                                     <td>Diário Oficial de Roraima</td>
                                     <td><span class="badge diario">Diário</span></td>
-                                    <td><span class="status">100%</span></td>
-                                    <td>
-                                        <span class="check-mark" aria-hidden="true">✓</span>
-                                        <span class="sr-only">Status confirmado</span>
-                                    </td>
+                                    <td><span class="status-pill">100%</span></td>
+                                    <td><span class="status-label">Nada Consta</span></td>
                                 </tr>
                                 <tr>
                                     <td>Diário Oficial de Santa Catarina</td>
                                     <td><span class="badge diario">Diário</span></td>
-                                    <td><span class="status">100%</span></td>
-                                    <td>
-                                        <span class="check-mark" aria-hidden="true">✓</span>
-                                        <span class="sr-only">Status confirmado</span>
-                                    </td>
+                                    <td><span class="status-pill">100%</span></td>
+                                    <td><span class="status-label">Nada Consta</span></td>
                                 </tr>
                                 <tr>
                                     <td>Diário Oficial de São Paulo</td>
                                     <td><span class="badge diario">Diário</span></td>
-                                    <td><span class="status">100%</span></td>
-                                    <td>
-                                        <span class="check-mark" aria-hidden="true">✓</span>
-                                        <span class="sr-only">Status confirmado</span>
-                                    </td>
+                                    <td><span class="status-pill">100%</span></td>
+                                    <td><span class="status-label">Nada Consta</span></td>
                                 </tr>
                                 <tr>
                                     <td>Diário Oficial de Sergipe</td>
                                     <td><span class="badge diario">Diário</span></td>
-                                    <td><span class="status">100%</span></td>
-                                    <td>
-                                        <span class="check-mark" aria-hidden="true">✓</span>
-                                        <span class="sr-only">Status confirmado</span>
-                                    </td>
+                                    <td><span class="status-pill">100%</span></td>
+                                    <td><span class="status-label">Nada Consta</span></td>
                                 </tr>
                                 <tr>
                                     <td>Diário Oficial do Tocantins</td>
                                     <td><span class="badge diario">Diário</span></td>
-                                    <td><span class="status">100%</span></td>
-                                    <td>
-                                        <span class="check-mark" aria-hidden="true">✓</span>
-                                        <span class="sr-only">Status confirmado</span>
-                                    </td>
+                                    <td><span class="status-pill">100%</span></td>
+                                    <td><span class="status-label">Nada Consta</span></td>
                                 </tr>
                                 <tr>
                                     <td>TRF1</td>
                                     <td><span class="badge tribunal">Tribunal</span></td>
-                                    <td><span class="status">100%</span></td>
-                                    <td>
-                                        <span class="check-mark" aria-hidden="true">✓</span>
-                                        <span class="sr-only">Status confirmado</span>
-                                    </td>
+                                    <td><span class="status-pill">100%</span></td>
+                                    <td><span class="status-label">Nada Consta</span></td>
                                 </tr>
                                 <tr>
                                     <td>TRF2</td>
                                     <td><span class="badge tribunal">Tribunal</span></td>
-                                    <td><span class="status">100%</span></td>
-                                    <td>
-                                        <span class="check-mark" aria-hidden="true">✓</span>
-                                        <span class="sr-only">Status confirmado</span>
-                                    </td>
+                                    <td><span class="status-pill">100%</span></td>
+                                    <td><span class="status-label">Nada Consta</span></td>
                                 </tr>
                                 <tr>
                                     <td>TRF3</td>
                                     <td><span class="badge tribunal">Tribunal</span></td>
-                                    <td><span class="status">100%</span></td>
-                                    <td>
-                                        <span class="check-mark" aria-hidden="true">✓</span>
-                                        <span class="sr-only">Status confirmado</span>
-                                    </td>
+                                    <td><span class="status-pill">100%</span></td>
+                                    <td><span class="status-label">Nada Consta</span></td>
                                 </tr>
                                 <tr>
                                     <td>TRF4</td>
                                     <td><span class="badge tribunal">Tribunal</span></td>
-                                    <td><span class="status">100%</span></td>
-                                    <td>
-                                        <span class="check-mark" aria-hidden="true">✓</span>
-                                        <span class="sr-only">Status confirmado</span>
-                                    </td>
+                                    <td><span class="status-pill">100%</span></td>
+                                    <td><span class="status-label">Nada Consta</span></td>
                                 </tr>
                                 <tr>
                                     <td>TRF5</td>
                                     <td><span class="badge tribunal">Tribunal</span></td>
-                                    <td><span class="status">100%</span></td>
-                                    <td>
-                                        <span class="check-mark" aria-hidden="true">✓</span>
-                                        <span class="sr-only">Status confirmado</span>
-                                    </td>
+                                    <td><span class="status-pill">100%</span></td>
+                                    <td><span class="status-label">Nada Consta</span></td>
                                 </tr>
                                 <tr>
                                     <td>Outras Fontes Lícitas</td>
                                     <td><span class="badge diversos">Diversos</span></td>
-                                    <td><span class="status">100%</span></td>
-                                    <td>
-                                        <span class="check-mark" aria-hidden="true">✓</span>
-                                        <span class="sr-only">Status confirmado</span>
-                                    </td>
+                                    <td><span class="status-pill">100%</span></td>
+                                    <td><span class="status-label">Nada Consta</span></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1148,6 +1051,45 @@
                     >
                     <div class="form-error" id="name-error" role="alert"></div>
                 </div>
+                <div class="form-group">
+                    <label for="user-state-input" class="form-label">Estado</label>
+                    <select
+                        id="user-state-input"
+                        class="form-input"
+                        required
+                        aria-describedby="state-error"
+                    >
+                        <option value="">Selecione seu estado</option>
+                        <option value="AC">Acre (AC)</option>
+                        <option value="AL">Alagoas (AL)</option>
+                        <option value="AP">Amapá (AP)</option>
+                        <option value="AM">Amazonas (AM)</option>
+                        <option value="BA">Bahia (BA)</option>
+                        <option value="CE">Ceará (CE)</option>
+                        <option value="DF">Distrito Federal (DF)</option>
+                        <option value="ES">Espírito Santo (ES)</option>
+                        <option value="GO">Goiás (GO)</option>
+                        <option value="MA">Maranhão (MA)</option>
+                        <option value="MT">Mato Grosso (MT)</option>
+                        <option value="MS">Mato Grosso do Sul (MS)</option>
+                        <option value="MG">Minas Gerais (MG)</option>
+                        <option value="PA">Pará (PA)</option>
+                        <option value="PB">Paraíba (PB)</option>
+                        <option value="PR">Paraná (PR)</option>
+                        <option value="PE">Pernambuco (PE)</option>
+                        <option value="PI">Piauí (PI)</option>
+                        <option value="RJ">Rio de Janeiro (RJ)</option>
+                        <option value="RN">Rio Grande do Norte (RN)</option>
+                        <option value="RS">Rio Grande do Sul (RS)</option>
+                        <option value="RO">Rondônia (RO)</option>
+                        <option value="RR">Roraima (RR)</option>
+                        <option value="SC">Santa Catarina (SC)</option>
+                        <option value="SP">São Paulo (SP)</option>
+                        <option value="SE">Sergipe (SE)</option>
+                        <option value="TO">Tocantins (TO)</option>
+                    </select>
+                    <div class="form-error" id="state-error" role="alert"></div>
+                </div>
                 <div class="modal-actions">
                     <button type="button" class="btn btn-secondary" id="skip-btn">Pular</button>
                     <button type="submit" class="btn btn-primary" id="submit-btn">Continuar</button>
@@ -1166,6 +1108,8 @@
             const welcomeForm = document.getElementById("welcome-form");
             const userNameInput = document.getElementById("user-name-input");
             const nameError = document.getElementById("name-error");
+            const userStateInput = document.getElementById("user-state-input");
+            const stateError = document.getElementById("state-error");
             const submitBtn = document.getElementById("submit-btn");
             const skipBtn = document.getElementById("skip-btn");
             const userGreeting = document.getElementById("user-greeting");
@@ -1176,6 +1120,7 @@
             // State
             let isModalOpen = false;
             let currentUserName = '';
+            let currentUserState = '';
 
             // Date formatting
             const formatter = new Intl.DateTimeFormat("pt-BR", {
@@ -1222,12 +1167,32 @@
                 }
             }
 
+            function saveUserState(state) {
+                try {
+                    localStorage.setItem('cilaw_user_state', state);
+                    currentUserState = state;
+                } catch (e) {
+                    console.warn('Could not save user state to localStorage:', e);
+                }
+            }
+
+            function getUserState() {
+                try {
+                    return localStorage.getItem('cilaw_user_state') || '';
+                } catch (e) {
+                    console.warn('Could not read user state from localStorage:', e);
+                    return '';
+                }
+            }
+
             function clearUserName() {
                 try {
                     localStorage.removeItem('cilaw_user_name');
+                    localStorage.removeItem('cilaw_user_state');
                     currentUserName = '';
+                    currentUserState = '';
                 } catch (e) {
-                    console.warn('Could not clear user name from localStorage:', e);
+                    console.warn('Could not clear user data from localStorage:', e);
                 }
             }
 
@@ -1253,10 +1218,20 @@
                 isModalOpen = true;
                 welcomeModal.classList.add('show');
                 document.body.style.overflow = 'hidden';
-                
+
+                clearFormError();
+                clearStateError();
+
+                userNameInput.value = currentUserName;
+                userStateInput.value = currentUserState || '';
+
                 // Focus management
                 setTimeout(() => {
                     userNameInput.focus();
+                    if (typeof userNameInput.setSelectionRange === 'function') {
+                        const length = userNameInput.value.length;
+                        userNameInput.setSelectionRange(length, length);
+                    }
                 }, 100);
             }
 
@@ -1270,6 +1245,9 @@
                 // Clear form
                 welcomeForm.reset();
                 clearFormError();
+                clearStateError();
+                userNameInput.value = '';
+                userStateInput.value = '';
             }
 
             // Form validation
@@ -1294,6 +1272,14 @@
                 return null;
             }
 
+            function validateState(state) {
+                if (!state) {
+                    return 'Selecione seu estado.';
+                }
+
+                return null;
+            }
+
             function showFormError(message) {
                 nameError.textContent = message;
                 nameError.classList.add('show');
@@ -1314,32 +1300,75 @@
                 clearFormError();
             }
 
+            function showStateError(message) {
+                stateError.textContent = message;
+                stateError.classList.add('show');
+                userStateInput.classList.add('error');
+                userStateInput.classList.remove('success');
+                userStateInput.setAttribute('aria-invalid', 'true');
+            }
+
+            function clearStateError() {
+                stateError.classList.remove('show');
+                userStateInput.classList.remove('error', 'success');
+                userStateInput.removeAttribute('aria-invalid');
+            }
+
+            function showStateSuccess() {
+                userStateInput.classList.add('success');
+                userStateInput.classList.remove('error');
+                stateError.classList.remove('show');
+                userStateInput.removeAttribute('aria-invalid');
+            }
+
             // Form submission
             function handleFormSubmit(event) {
                 event.preventDefault();
                 
-                const name = userNameInput.value.trim();
-                const error = validateName(name);
-                
-                if (error) {
-                    showFormError(error);
+                const nameInputValue = userNameInput.value;
+                const stateValue = userStateInput.value;
+
+                const nameErrorMessage = validateName(nameInputValue);
+                const stateErrorMessage = validateState(stateValue);
+
+                if (nameErrorMessage) {
+                    showFormError(nameErrorMessage);
                     userNameInput.focus();
+                } else {
+                    showFormSuccess();
+                }
+
+                if (stateErrorMessage) {
+                    showStateError(stateErrorMessage);
+                    if (!nameErrorMessage) {
+                        userStateInput.focus();
+                    }
+                } else {
+                    showStateSuccess();
+                }
+
+                if (nameErrorMessage || stateErrorMessage) {
                     return;
                 }
-                
+
+                const name = nameInputValue.trim();
+                const state = stateValue;
+
                 // Show loading state
                 submitBtn.classList.add('loading');
                 submitBtn.disabled = true;
-                
+
                 // Simulate processing time for better UX
                 setTimeout(() => {
                     saveUserName(name);
+                    saveUserState(state);
                     updatePersonalization(name);
                     showFormSuccess();
-                    
+                    showStateSuccess();
+
                     // Success animation
                     submitBtn.classList.add('success-animation');
-                    
+
                     setTimeout(() => {
                         hideModal();
                         submitBtn.classList.remove('loading', 'success-animation');
@@ -1359,7 +1388,11 @@
             // Keyboard navigation
             function handleKeydown(event) {
                 if (!isModalOpen) return;
-                
+
+                if (event.key === ' ' && document.activeElement === userNameInput) {
+                    return;
+                }
+
                 if (event.key === 'Escape') {
                     hideModal();
                 }
@@ -1376,12 +1409,18 @@
             function init() {
                 // Check if user has a saved name
                 const savedName = getUserName();
+                const savedState = getUserState();
+
                 if (savedName) {
                     currentUserName = savedName;
                     updatePersonalization(savedName);
                 } else {
                     // Show welcome modal on first visit
                     setTimeout(showModal, 500);
+                }
+
+                if (savedState) {
+                    currentUserState = savedState;
                 }
                 
                 // Set up event listeners
@@ -1393,9 +1432,9 @@
                 
                 // Real-time validation
                 userNameInput.addEventListener('input', function() {
-                    const name = this.value.trim();
-                    if (name.length > 0) {
-                        const error = validateName(name);
+                    const nameValue = this.value;
+                    if (nameValue.length > 0) {
+                        const error = validateName(nameValue);
                         if (error) {
                             showFormError(error);
                         } else {
@@ -1405,7 +1444,16 @@
                         clearFormError();
                     }
                 });
-                
+
+                userStateInput.addEventListener('change', function() {
+                    const error = validateState(this.value);
+                    if (error) {
+                        showStateError(error);
+                    } else {
+                        showStateSuccess();
+                    }
+                });
+
                 // Initialize date
                 updateDate();
                 scheduleNextUpdate();
