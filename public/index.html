@@ -37,6 +37,29 @@
             --radius-md: 12px;
             --radius-sm: 8px;
             --font-base: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", sans-serif;
+            
+            /* Modal system */
+            --modal-bg: rgba(0, 0, 0, 0.8);
+            --modal-content-bg: var(--bg-panel-solid);
+            --modal-shadow: 0 32px 80px rgba(0, 0, 0, 0.6);
+            --modal-border: var(--border-soft);
+            
+            /* Form elements */
+            --input-bg: rgba(255, 255, 255, 0.05);
+            --input-border: rgba(255, 255, 255, 0.1);
+            --input-focus: var(--brand-primary);
+            --input-error: #ef4444;
+            --input-success: #10b981;
+            
+            /* Animations */
+            --transition-fast: 150ms ease;
+            --transition-smooth: 300ms ease;
+            --transition-bounce: 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            
+            /* States */
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --error-color: #ef4444;
         }
 
         * {
@@ -436,6 +459,259 @@
             }
         }
 
+        /* Modal System */
+        .modal {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background: var(--modal-bg);
+            backdrop-filter: blur(8px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity var(--transition-smooth), visibility var(--transition-smooth);
+        }
+
+        .modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            position: relative;
+            width: 100%;
+            max-width: 480px;
+            background: var(--modal-content-bg);
+            border: 1px solid var(--modal-border);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--modal-shadow);
+            padding: 32px;
+            transform: translateY(-20px) scale(0.95);
+            transition: transform var(--transition-bounce);
+        }
+
+        @supports (backdrop-filter: blur(0)) {
+            .modal-content {
+                background: var(--bg-panel);
+                backdrop-filter: blur(18px) saturate(160%);
+            }
+        }
+
+        .modal.show .modal-content {
+            transform: translateY(0) scale(1);
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .modal-subtitle {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--input-bg);
+            border: 1px solid var(--input-border);
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            font-size: 16px;
+            font-family: var(--font-base);
+            transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--input-focus);
+            box-shadow: 0 0 0 3px rgba(255, 149, 0, 0.1);
+        }
+
+        .form-input.error {
+            border-color: var(--input-error);
+        }
+
+        .form-input.success {
+            border-color: var(--input-success);
+        }
+
+        .form-error {
+            display: none;
+            font-size: 13px;
+            color: var(--input-error);
+            margin-top: 6px;
+        }
+
+        .form-error.show {
+            display: block;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-size: 15px;
+            font-weight: 600;
+            font-family: var(--font-base);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            text-decoration: none;
+            min-height: 44px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--brand-primary) 0%, #ff7e1d 100%);
+            color: #101014;
+            box-shadow: 0 4px 14px rgba(255, 149, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(255, 149, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+            margin-top: 24px;
+        }
+
+        .modal-actions .btn {
+            flex: 1;
+        }
+
+        /* Personalization Elements */
+        .user-greeting {
+            display: none;
+            font-size: 18px;
+            color: var(--brand-primary);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .user-greeting.show {
+            display: block;
+        }
+
+        .name-change-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 13px;
+            cursor: pointer;
+            text-decoration: underline;
+            margin-left: 8px;
+        }
+
+        .name-change-btn.show {
+            display: inline;
+        }
+
+        .name-change-btn:hover {
+            color: var(--brand-primary);
+        }
+
+        /* Loading States */
+        .loading {
+            position: relative;
+            pointer-events: none;
+        }
+
+        .loading::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            margin: -10px 0 0 -10px;
+            border: 2px solid transparent;
+            border-top: 2px solid currentColor;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Success Animation */
+        .success-animation {
+            animation: successPulse 0.6s ease-out;
+        }
+
+        @keyframes successPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @media (max-width: 600px) {
+            .modal {
+                padding: 16px;
+            }
+
+            .modal-content {
+                padding: 24px;
+            }
+
+            .modal-title {
+                font-size: 20px;
+            }
+
+            .modal-actions {
+                flex-direction: column;
+            }
+        }
+
         @media (prefers-reduced-motion: reduce) {
             *,
             *::before,
@@ -452,6 +728,10 @@
     <div class="container">
         <header class="page-header">
             <h1 class="logo">CI Law - Acompanhamento Processual</h1>
+            <p class="user-greeting" id="user-greeting">
+                Olá, <span id="user-name-display"></span>!
+                <button class="name-change-btn" id="name-change-btn" aria-label="Alterar nome">alterar</button>
+            </p>
             <p class="date" id="current-date" aria-live="polite"></p>
         </header>
 
@@ -460,7 +740,7 @@
                 <div class="panel-header">
                     <span class="status-icon" aria-hidden="true">✓</span>
                     <p class="notification-text" id="alerta-semanal">
-                        Informamos que, nas publicações dos <strong>últimos sete dias</strong>, <strong class="positive">não houve menções ao seu nome.</strong>
+                        Informamos que, nas publicações dos <strong>últimos sete dias</strong>, <strong class="positive">não houve menções ao nome de <span id="user-name-notification"></span>.</strong>
                     </p>
                 </div>
                 <span class="sr-only">Última varredura concluída sem ocorrências.</span>
@@ -845,43 +1125,305 @@
         </footer>
     </div>
 
+    <!-- Welcome Modal -->
+    <div class="modal" id="welcome-modal" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-description" aria-modal="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modal-title">Bem-vindo ao CI Law</h2>
+                <p class="modal-subtitle" id="modal-description">
+                    Para personalizar sua experiência de monitoramento, por favor, informe seu nome completo.
+                </p>
+            </div>
+            <form id="welcome-form" novalidate>
+                <div class="form-group">
+                    <label for="user-name-input" class="form-label">Nome completo</label>
+                    <input 
+                        type="text" 
+                        id="user-name-input" 
+                        class="form-input" 
+                        placeholder="Digite seu nome completo"
+                        required
+                        autocomplete="name"
+                        aria-describedby="name-error"
+                    >
+                    <div class="form-error" id="name-error" role="alert"></div>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="skip-btn">Pular</button>
+                    <button type="submit" class="btn btn-primary" id="submit-btn">Continuar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script>
         (function () {
-            var dateElement = document.getElementById("current-date");
-            if (!dateElement) {
-                return;
-            }
+            'use strict';
 
-            var formatter = new Intl.DateTimeFormat("pt-BR", {
+            // DOM Elements
+            const dateElement = document.getElementById("current-date");
+            const welcomeModal = document.getElementById("welcome-modal");
+            const welcomeForm = document.getElementById("welcome-form");
+            const userNameInput = document.getElementById("user-name-input");
+            const nameError = document.getElementById("name-error");
+            const submitBtn = document.getElementById("submit-btn");
+            const skipBtn = document.getElementById("skip-btn");
+            const userGreeting = document.getElementById("user-greeting");
+            const userNameDisplay = document.getElementById("user-name-display");
+            const userNameNotification = document.getElementById("user-name-notification");
+            const nameChangeBtn = document.getElementById("name-change-btn");
+
+            // State
+            let isModalOpen = false;
+            let currentUserName = '';
+
+            // Date formatting
+            const formatter = new Intl.DateTimeFormat("pt-BR", {
                 weekday: "long",
                 day: "numeric",
                 month: "long",
                 year: "numeric"
             });
 
+            // Utility functions
             function updateDate() {
-                dateElement.textContent = formatter.format(new Date());
+                if (dateElement) {
+                    dateElement.textContent = formatter.format(new Date());
+                }
             }
 
             function scheduleNextUpdate() {
-                var now = new Date();
-                var next = new Date(now);
+                const now = new Date();
+                const next = new Date(now);
                 next.setHours(24, 0, 5, 0);
-                var timeout = next.getTime() - now.getTime();
-                window.setTimeout(function () {
+                const timeout = next.getTime() - now.getTime();
+                setTimeout(function () {
                     updateDate();
                     scheduleNextUpdate();
                 }, timeout);
             }
 
-            updateDate();
-            scheduleNextUpdate();
-
-            document.addEventListener("visibilitychange", function () {
-                if (!document.hidden) {
-                    updateDate();
+            // LocalStorage management
+            function saveUserName(name) {
+                try {
+                    localStorage.setItem('cilaw_user_name', name);
+                    currentUserName = name;
+                } catch (e) {
+                    console.warn('Could not save user name to localStorage:', e);
                 }
-            });
+            }
+
+            function getUserName() {
+                try {
+                    return localStorage.getItem('cilaw_user_name') || '';
+                } catch (e) {
+                    console.warn('Could not read user name from localStorage:', e);
+                    return '';
+                }
+            }
+
+            function clearUserName() {
+                try {
+                    localStorage.removeItem('cilaw_user_name');
+                    currentUserName = '';
+                } catch (e) {
+                    console.warn('Could not clear user name from localStorage:', e);
+                }
+            }
+
+            // Personalization
+            function updatePersonalization(name) {
+                if (!name) {
+                    userGreeting.classList.remove('show');
+                    nameChangeBtn.classList.remove('show');
+                    userNameNotification.textContent = 'seu nome';
+                    return;
+                }
+
+                userNameDisplay.textContent = name;
+                userNameNotification.textContent = name;
+                userGreeting.classList.add('show');
+                nameChangeBtn.classList.add('show');
+            }
+
+            // Modal management
+            function showModal() {
+                if (isModalOpen) return;
+                
+                isModalOpen = true;
+                welcomeModal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+                
+                // Focus management
+                setTimeout(() => {
+                    userNameInput.focus();
+                }, 100);
+            }
+
+            function hideModal() {
+                if (!isModalOpen) return;
+                
+                isModalOpen = false;
+                welcomeModal.classList.remove('show');
+                document.body.style.overflow = '';
+                
+                // Clear form
+                welcomeForm.reset();
+                clearFormError();
+            }
+
+            // Form validation
+            function validateName(name) {
+                if (!name || name.trim().length === 0) {
+                    return 'Por favor, digite seu nome.';
+                }
+                
+                if (name.trim().length < 2) {
+                    return 'O nome deve ter pelo menos 2 caracteres.';
+                }
+                
+                if (name.trim().length > 100) {
+                    return 'O nome deve ter no máximo 100 caracteres.';
+                }
+                
+                // Check for valid characters (letters, spaces, hyphens, apostrophes)
+                if (!/^[a-zA-ZÀ-ÿ\\s\\-\\']+$/.test(name.trim())) {
+                    return 'O nome deve conter apenas letras, espaços, hífens e apostrofes.';
+                }
+                
+                return null;
+            }
+
+            function showFormError(message) {
+                nameError.textContent = message;
+                nameError.classList.add('show');
+                userNameInput.classList.add('error');
+                userNameInput.classList.remove('success');
+                userNameInput.setAttribute('aria-invalid', 'true');
+            }
+
+            function clearFormError() {
+                nameError.classList.remove('show');
+                userNameInput.classList.remove('error', 'success');
+                userNameInput.removeAttribute('aria-invalid');
+            }
+
+            function showFormSuccess() {
+                userNameInput.classList.add('success');
+                userNameInput.classList.remove('error');
+                clearFormError();
+            }
+
+            // Form submission
+            function handleFormSubmit(event) {
+                event.preventDefault();
+                
+                const name = userNameInput.value.trim();
+                const error = validateName(name);
+                
+                if (error) {
+                    showFormError(error);
+                    userNameInput.focus();
+                    return;
+                }
+                
+                // Show loading state
+                submitBtn.classList.add('loading');
+                submitBtn.disabled = true;
+                
+                // Simulate processing time for better UX
+                setTimeout(() => {
+                    saveUserName(name);
+                    updatePersonalization(name);
+                    showFormSuccess();
+                    
+                    // Success animation
+                    submitBtn.classList.add('success-animation');
+                    
+                    setTimeout(() => {
+                        hideModal();
+                        submitBtn.classList.remove('loading', 'success-animation');
+                        submitBtn.disabled = false;
+                    }, 600);
+                }, 800);
+            }
+
+            function handleSkip() {
+                hideModal();
+            }
+
+            function handleNameChange() {
+                showModal();
+            }
+
+            // Keyboard navigation
+            function handleKeydown(event) {
+                if (!isModalOpen) return;
+                
+                if (event.key === 'Escape') {
+                    hideModal();
+                }
+            }
+
+            // Click outside to close
+            function handleModalClick(event) {
+                if (event.target === welcomeModal) {
+                    hideModal();
+                }
+            }
+
+            // Initialize
+            function init() {
+                // Check if user has a saved name
+                const savedName = getUserName();
+                if (savedName) {
+                    currentUserName = savedName;
+                    updatePersonalization(savedName);
+                } else {
+                    // Show welcome modal on first visit
+                    setTimeout(showModal, 500);
+                }
+                
+                // Set up event listeners
+                welcomeForm.addEventListener('submit', handleFormSubmit);
+                skipBtn.addEventListener('click', handleSkip);
+                nameChangeBtn.addEventListener('click', handleNameChange);
+                document.addEventListener('keydown', handleKeydown);
+                welcomeModal.addEventListener('click', handleModalClick);
+                
+                // Real-time validation
+                userNameInput.addEventListener('input', function() {
+                    const name = this.value.trim();
+                    if (name.length > 0) {
+                        const error = validateName(name);
+                        if (error) {
+                            showFormError(error);
+                        } else {
+                            showFormSuccess();
+                        }
+                    } else {
+                        clearFormError();
+                    }
+                });
+                
+                // Initialize date
+                updateDate();
+                scheduleNextUpdate();
+                
+                // Update date when page becomes visible
+                document.addEventListener("visibilitychange", function () {
+                    if (!document.hidden) {
+                        updateDate();
+                    }
+                });
+            }
+
+            // Start the application
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', init);
+            } else {
+                init();
+            }
         })();
     </script>
 </body>
